@@ -1,10 +1,7 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { Box, Button, Text } from "@mantine/core";
-
+import shallow from "zustand/shallow";
 import { useStore } from "./store";
-import { shallowEqual } from "@mantine/hooks";
+import "./App.css";
 
 const DoNothing = () => {
   const { doNothing } = useStore((state) => state);
@@ -44,7 +41,7 @@ const SecondValue = () => {
 };
 
 const NumbersValue = () => {
-  const numbers = useStore((state) => state.numbers, shallowEqual);
+  const numbers = useStore((state) => state.numbers, shallow);
   return <Text>Numbers Value: {numbers.join("")}</Text>;
 };
 
